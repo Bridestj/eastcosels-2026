@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+
+import { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-export default function RegisterPage() {
+function RegisterForm() {
     const searchParams = useSearchParams();
 
 const selectedPackage =
@@ -238,5 +239,12 @@ const [level, setLevel] = useState("");
 
       </div>
     </main>
+  );
+} 
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={<div className="p-10">Loading registration form...</div>}>
+      <RegisterForm />
+    </Suspense>
   );
 }
