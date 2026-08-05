@@ -1,3 +1,4 @@
+import Link from "next/link";
 const packages = [
   {
     title: "Student",
@@ -7,11 +8,11 @@ const packages = [
       "Conference Materials",
       "Conference Badge",
       "Certificate of Participation",
-      "Lunch & Refreshments",
+      "Refreshments",
     ],
   },
   {
-    title: "Non-students",
+    title: "Regular Delegate",
     price: "₦35,000",
     badge: "Premium",
     features: [
@@ -98,11 +99,12 @@ export default function Registration() {
 
               </ul>
 
-              <button
-                className="mt-10 w-full rounded-full bg-green-600 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-green-700"
-              >
+              <Link
+                href={`/register?package=${pkg.title}`}
+                className="mt-10 block w-full rounded-full bg-green-600 py-4 text-center font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-green-700"
+                >
                 Register Now
-              </button>
+</Link>
 
             </div>
 
