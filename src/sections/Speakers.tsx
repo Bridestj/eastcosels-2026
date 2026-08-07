@@ -6,15 +6,14 @@ const speakers = [
     image: "/images/speaker1.jpeg",
   },
   {
-    name: "Caleb Mmesoma",
-    title: "Guest Speaker",
+    name: "Prof. C.F. Ononye",
+    title: "HOD UNN",
     image: "/images/speaker2.jpg",
   },
   {
-    name: "Caleb Mmesoma",
-    title: "Panel Speaker",
-    institution: "Nnamdi Azikiwe University",
-    image: "/images/speaker3.jpg",
+    name: "Sis. Dr. Mary Janepatrick",
+    title: "Staff Adviser",
+    image: "images/speaker3.jpg",
   },
 ];
 

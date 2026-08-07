@@ -18,47 +18,66 @@ const [level, setLevel] = useState("");
   const [registrationCategory, setRegistrationCategory] =
   useState(selectedPackage);
   const [accommodationRequired, setAccommodationRequired] = useState("No");
-  const handleSubmit = async (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
 
+  // Save registration first
   const { error } = await supabase
     .from("registrations")
     .insert([
-  {
-    full_name: fullName,
-    email: email,
-    phone: phone,
-    gender: gender,
-    institution: institution,
-    department: department,
-    level: level,
-    registration_category: registrationCategory,
-    accommodation_required: accommodationRequired,
+      {
+        full_name: fullName,
+        email,
+        phone,
+        gender,
+        institution,
+        department,
+        level,
+        registration_category: registrationCategory,
+        accommodation_required: accommodationRequired,
+        payment_status: "Pending",
+        amount_paid:
+          registrationCategory === "Student"
+            ? 12000
+            : registrationCategory === "Regular Delegate"
+            ? 35000
+            : 199,
+      },
+    ]);
 
-    payment_status: "Pending",
-
-    amount_paid:
-      registrationCategory === "Student"
-        ? 12000
-        : registrationCategory === "Regular Delegate"
-        ? 35000
-        : 199,
-  },
-]);
   if (error) {
-  alert("Registration failed.");
-  alert(JSON.stringify(error, null, 2));
-} else {
-    alert("Registration successful!");
-
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setGender("");
-    setInstitution("");
-    setDepartment("");
-    setLevel("");
+    alert("Registration failed.");
+    alert(JSON.stringify(error, null, 2));
+    return;
   }
+
+  // Initialize Paystack
+  const response = await fetch("/api/paystack/initialize", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      amount:
+        registrationCategory === "Student"
+          ? 12000 * 100
+          : registrationCategory === "Regular Delegate"
+          ? 35000 * 100
+          : 199 * 100,
+    }),
+  });
+
+  const payment = await response.json();
+  console.log(payment);
+
+  if (!payment.status) {
+    alert("Unable to initialize payment.");
+    return;
+  }
+
+  // Redirect to Paystack
+  window.location.href = payment.data.authorization_url;
 };
   return (
     <main className="min-h-screen bg-gray-100 py-16">
