@@ -20,19 +20,23 @@ export default function ForgotPasswordPage() {
     setErrorMessage("");
 
     try {
-      const siteUrl =
-        process.env.NEXT_PUBLIC_SITE_URL ||
-        window.location.origin;
+      const redirectTo =
+        `${window.location.origin}/admin/reset-password`;
 
       const { error } =
         await supabase.auth.resetPasswordForEmail(
-          email,
+          email.trim().toLowerCase(),
           {
-            redirectTo: `${siteUrl}/admin/reset-password`,
+            redirectTo,
           }
         );
 
       if (error) {
+        console.error(
+          "PASSWORD RESET ERROR:",
+          error
+        );
+
         setErrorMessage(error.message);
         return;
       }
@@ -41,7 +45,10 @@ export default function ForgotPasswordPage() {
         "Password reset instructions have been sent to your email address."
       );
     } catch (error) {
-      console.error("PASSWORD RESET ERROR:", error);
+      console.error(
+        "PASSWORD RESET ERROR:",
+        error
+      );
 
       setErrorMessage(
         "Something went wrong. Please try again."
