@@ -18,8 +18,10 @@ const packages = {
     ],
   },
 
+  // Keep "Alumini" internally so existing backend/database logic
+  // continues to work. The user-facing text says "Alumni".
   Alumini: {
-    title: "Alumini",
+    title: "Alumni",
     price: 20000,
     displayPrice: "₦20,000",
     features: [
@@ -34,7 +36,7 @@ const packages = {
     price: 199,
     displayPrice: "$199",
     features: [
-      "Everything in Alumini",
+      "Everything in Alumni",
       "Airport Welcome Guide",
       "International Delegate Kit",
       "Priority Conference Support",
@@ -79,7 +81,10 @@ function RegisterForm() {
 
     setErrorMessage("");
 
-    // Clean up values before validation
+    // -------------------------
+    // CLEAN VALUES
+    // -------------------------
+
     const cleanName = fullName.trim();
     const cleanEmail = email.trim().toLowerCase();
     const cleanPhone = phone.trim();
@@ -187,7 +192,7 @@ function RegisterForm() {
 
     if (!level) {
       setErrorMessage(
-        "Please select your level."
+        "Please select your level or status."
       );
       return;
     }
@@ -204,12 +209,6 @@ function RegisterForm() {
     try {
       const amount = selectedPackage.price;
 
-      const currency =
-        registrationCategory ===
-        "International Delegate"
-          ? "USD"
-          : "NGN";
-
       // -------------------------
       // 1. INITIALIZE PAYSTACK
       // -------------------------
@@ -223,8 +222,8 @@ function RegisterForm() {
           },
 
           body: JSON.stringify({
-           email,
-          registrationCategory,
+            email: cleanEmail,
+            registrationCategory,
           }),
         }
       );
@@ -399,7 +398,7 @@ function RegisterForm() {
                 minLength={3}
                 maxLength={100}
                 autoComplete="name"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               />
             </div>
@@ -422,7 +421,7 @@ function RegisterForm() {
                   setEmail(e.target.value)
                 }
                 autoComplete="email"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               />
             </div>
@@ -446,7 +445,7 @@ function RegisterForm() {
                 }
                 autoComplete="tel"
                 maxLength={20}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               />
             </div>
@@ -470,7 +469,7 @@ function RegisterForm() {
                   onChange={(e) =>
                     setGender(e.target.value)
                   }
-                  className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                   required
                 >
                   <option value="">
@@ -487,92 +486,92 @@ function RegisterForm() {
                 </select>
               </div>
 
-              {/* Level */}
+              {/* Level / Status */}
 
               <div>
-  <label className="mb-2 block text-sm font-bold text-gray-800">
-    {registrationCategory === "Student"
-      ? "Level"
-      : registrationCategory === "Alumini"
-        ? "Status"
-        : "Academic / Professional Status"}
+                <label className="mb-2 block text-sm font-bold text-gray-800">
+                  {registrationCategory === "Student"
+                    ? "Level"
+                    : registrationCategory === "Alumini"
+                      ? "Status"
+                      : "Academic / Professional Status"}
 
-    <span className="ml-1 text-red-500">
-      *
-    </span>
-  </label>
+                  <span className="ml-1 text-red-500">
+                    *
+                  </span>
+                </label>
 
-  <select
-    value={level}
-    onChange={(e) =>
-      setLevel(e.target.value)
-    }
-    className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
-    required
-  >
-    <option value="">
-      {registrationCategory === "Student"
-        ? "Select Level"
-        : "Select Status"}
-    </option>
+                <select
+                  value={level}
+                  onChange={(e) =>
+                    setLevel(e.target.value)
+                  }
+                  className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                  required
+                >
+                  <option value="">
+                    {registrationCategory === "Student"
+                      ? "Select Level"
+                      : "Select Status"}
+                  </option>
 
-    {registrationCategory === "Student" && (
-      <>
-        <option value="100 Level">
-          100 Level
-        </option>
+                  {registrationCategory === "Student" && (
+                    <>
+                      <option value="100 Level">
+                        100 Level
+                      </option>
 
-        <option value="200 Level">
-          200 Level
-        </option>
+                      <option value="200 Level">
+                        200 Level
+                      </option>
 
-        <option value="300 Level">
-          300 Level
-        </option>
+                      <option value="300 Level">
+                        300 Level
+                      </option>
 
-        <option value="400 Level">
-          400 Level
-        </option>
+                      <option value="400 Level">
+                        400 Level
+                      </option>
 
-        <option value="500 Level">
-          500 Level
-        </option>
-      </>
-    )}
+                      <option value="500 Level">
+                        500 Level
+                      </option>
+                    </>
+                  )}
 
-    {registrationCategory === "Alumini" && (
-      <>
-        <option value="Graduate">
-          Graduate
-        </option>
+                  {registrationCategory === "Alumini" && (
+                    <>
+                      <option value="Graduate">
+                        Graduate
+                      </option>
 
-        <option value="Postgraduate">
-          Postgraduate
-        </option>
-      </>
-    )}
+                      <option value="Postgraduate">
+                        Postgraduate
+                      </option>
+                    </>
+                  )}
 
-    {registrationCategory === "International Delegate" && (
-      <>
-        <option value="Undergraduate">
-          Undergraduate
-        </option>
+                  {registrationCategory === "International Delegate" && (
+                    <>
+                      <option value="Undergraduate">
+                        Undergraduate
+                      </option>
 
-        <option value="Postgraduate">
-          Postgraduate
-        </option>
+                      <option value="Postgraduate">
+                        Postgraduate
+                      </option>
 
-        <option value="Graduate / Alumni">
-          Graduate / Alumni
-        </option>
+                      <option value="Graduate / Alumni">
+                        Graduate / Alumni
+                      </option>
 
-        <option value="Professional / Researcher">
-          Professional / Researcher
-        </option>
-      </>
-    )}
-  </select>
-</div>
+                      <option value="Professional / Researcher">
+                        Professional / Researcher
+                      </option>
+                    </>
+                  )}
+                </select>
+              </div>
 
             </div>
 
@@ -595,7 +594,7 @@ function RegisterForm() {
                 }
                 maxLength={150}
                 autoComplete="organization"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               />
             </div>
@@ -618,7 +617,7 @@ function RegisterForm() {
                   setDepartment(e.target.value)
                 }
                 maxLength={150}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               />
             </div>
@@ -636,13 +635,13 @@ function RegisterForm() {
               <select
                 value={registrationCategory}
                 onChange={(e) => {
-                 const newCategory =
-                  e.target.value as PackageName;
+                  const newCategory =
+                    e.target.value as PackageName;
 
-                   setRegistrationCategory(newCategory);
-                   setLevel("");
+                  setRegistrationCategory(newCategory);
+                  setLevel("");
                 }}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
                 required
               >
                 <option value="Student">
@@ -650,7 +649,7 @@ function RegisterForm() {
                 </option>
 
                 <option value="Alumini">
-                  Alumini
+                  Alumni
                 </option>
 
                 <option value="International Delegate">
