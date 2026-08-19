@@ -161,7 +161,7 @@ export default function Footer() {
             <div className="space-y-4 text-green-100">
 
               <p>
-                📧 eastcosels2026@gmail.com
+                📧 mmesomacaleb8@gmail.com
               </p>
 
               <p>
