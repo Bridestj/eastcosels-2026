@@ -1,6 +1,13 @@
+
 export default function Contact() {
+  const inputClassName =
+    "w-full rounded-xl border border-gray-300 bg-white p-4 text-base text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100";
+
   return (
-    <section id="contact" className="bg-gray-50 py-24">
+    <section
+      id="contact"
+      className="bg-gray-50 py-24"
+    >
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Heading */}
@@ -27,6 +34,8 @@ export default function Contact() {
           {/* Left Side */}
 
           <div className="space-y-8">
+
+            {/* Contact Information */}
 
             <div className="rounded-3xl bg-white p-8 shadow-lg">
 
@@ -82,7 +91,7 @@ export default function Contact() {
 
             </div>
 
-            {/* Google Map Placeholder */}
+            {/* Google Map */}
 
             <div className="overflow-hidden rounded-3xl shadow-lg">
 
@@ -91,6 +100,7 @@ export default function Contact() {
                 width="100%"
                 height="320"
                 loading="lazy"
+                title="University of Nigeria, Nsukka map"
                 className="border-0"
               />
 
@@ -108,31 +118,44 @@ export default function Contact() {
 
             <form className="space-y-6">
 
+              {/* Full Name */}
+
               <input
                 type="text"
                 placeholder="Full Name"
-                className="w-full rounded-xl border border-gray-300 p-4 outline-none focus:border-green-600"
+                autoComplete="name"
+                className={inputClassName}
               />
+
+              {/* Email */}
 
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full rounded-xl border border-gray-300 p-4 outline-none focus:border-green-600"
+                autoComplete="email"
+                className={inputClassName}
               />
+
+              {/* Subject */}
 
               <input
                 type="text"
                 placeholder="Subject"
-                className="w-full rounded-xl border border-gray-300 p-4 outline-none focus:border-green-600"
+                className={inputClassName}
               />
+
+              {/* Message */}
 
               <textarea
                 rows={6}
                 placeholder="Your Message"
-                className="w-full rounded-xl border border-gray-300 p-4 outline-none focus:border-green-600"
+                className={inputClassName}
               />
 
+              {/* Submit */}
+
               <button
+                type="submit"
                 className="rounded-full bg-green-600 px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-green-700"
               >
                 Send Message
@@ -148,3 +171,4 @@ export default function Contact() {
     </section>
   );
 }
+
