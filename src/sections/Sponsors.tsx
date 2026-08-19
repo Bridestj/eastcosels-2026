@@ -89,7 +89,7 @@ export default function Sponsors() {
     </h4>
 
     <p className="mt-3 text-gray-600">
-      Lead Web Developer & Technical Suppor
+      Lead Web Developer & Technical Support
     </p>
 
     <div className="mt-6 flex gap-4">
@@ -166,11 +166,12 @@ export default function Sponsors() {
             research and innovation.
           </p>
 
-          <button
-            className="mt-8 rounded-full bg-green-600 px-10 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-green-700"
-          >
-            Become a Sponsor
-          </button>
+          <a
+          href="mailto:mmesomacaleb8@gmail.com?subject=EASTCOSELS%202026%20Sponsorship%20Inquiry"
+          className="mt-8 inline-block rounded-full bg-green-600 px-10 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-green-700"
+           >
+           Become a Sponsor
+          </a>
 
         </div>
 

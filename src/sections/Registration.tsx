@@ -12,13 +12,12 @@ const packages = [
     ],
   },
   {
-    title: "Regular Delegate",
-    price: "₦35,000",
+    title: "Alumini",
+    price: "₦20,000",
     badge: "Premium",
     features: [
       "Everything in Student",
-      "VIP Seating",
-      "Networking Dinner",
+      "Eastcosel polo",
       "Special Conference Souvenir",
     ],
   },
@@ -27,7 +26,7 @@ const packages = [
     price: "$199",
     badge: "International",
     features: [
-      "Everything in Non-students",
+      "Everything in Alumini",
       "Airport Welcome Guide",
       "International Delegate Kit",
       "Priority Conference Support",

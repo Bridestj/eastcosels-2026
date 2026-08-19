@@ -18,19 +18,19 @@ const questions = [
   {
     question: "Who can attend the conference?",
     answer:
-      "The conference is open to students, lecturers, researchers, professionals and international delegates interested in English and Literary Studies.",
+      "The conference is open to students, lecturers, researchers, Aluminis and international delegates interested in English and Literary Studies.",
   },
 
   {
     question: "Are there different registration packages?",
     answer:
-      "Yes. EASTCOSELS 2026 offers different packages for student delegates, professional delegates and international delegates.",
+      "Yes. EASTCOSELS 2026 offers different packages for student delegates, Aluminis and international delegates.",
   },
 
   {
     question: "Is accommodation provided?",
     answer:
-      "Accommodation is included for delegates registering under the student package. Professional and international delegates will arrange their own accommodation.",
+      "Accommodation is included for delegates registering under the student and Alumini package. International delegates will arrange their own accommodation.",
   },
 
   {
