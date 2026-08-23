@@ -1,18 +1,24 @@
 const speakers = [
   {
-    name: "Caleb Egbo",
+    name: "Comr. Caleb Egbo Somtochukwu",
     title: "Host",
     image: "/images/speaker1.jpeg",
   },
   {
     name: "Prof. C.F. Ononye",
-    title: "HOD UNN",
+    title: "Head, Department of English and literary Studies, UNN",
     image: "/images/speaker2.jpg",
   },
   {
-    name: "Sis. Dr. Mary Janepatrick",
-    title: "Staff Adviser",
+    name: "Rev. Sis. Dr. Mary Janepatrick",
+    title: "Staff Adviser,  Department of English and literary Studies, UNN",
     image: "/images/speaker3.jpg",
+  },
+
+  {
+    name: "Ogbonna Angela Onyedikachukwu",
+    title: "President, Department of English and literary Studies, UNN",
+    image: "/images/speaker4.jpeg",
   },
 ];
 

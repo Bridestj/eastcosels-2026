@@ -67,7 +67,7 @@ export default function Hero() {
 
           <h2 className="mt-2 text-xl font-bold italic leading-8 text-yellow-300 sm:text-2xl sm:leading-9 md:text-3xl md:leading-10">
             FROM CREATIVE ENERGY TO KNOWLEDGE ECONOMY: POSITIONING LITERARY
-            AND LINGUISTIC MINDS FOR ECONOMIC COMPETITIVENESS
+            AND LINGUISTIC MINDS FOR LEADERSHIP AND ECONOMIC COMPETITIVENESS
           </h2>
         </div>
 

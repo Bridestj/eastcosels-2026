@@ -59,45 +59,78 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <ul className="hidden gap-6 font-medium text-gray-700 lg:flex xl:gap-8">
+        <ul className="hidden items-center gap-6 font-medium text-gray-700 lg:flex xl:gap-8">
           <li>
-            <a href="#home" className="transition hover:text-green-700">
+            <a
+              href="#home"
+              className="transition hover:text-green-700"
+            >
               Home
             </a>
           </li>
 
           <li>
-            <a href="#about" className="transition hover:text-green-700">
+            <a
+              href="#about"
+              className="transition hover:text-green-700"
+            >
               About
             </a>
           </li>
 
           <li>
-            <a href="#speakers" className="transition hover:text-green-700">
+            <a
+              href="#speakers"
+              className="transition hover:text-green-700"
+            >
               Speakers
             </a>
           </li>
 
           <li>
-            <a href="#schedule" className="transition hover:text-green-700">
+            <a
+              href="#schedule"
+              className="transition hover:text-green-700"
+            >
               Schedule
             </a>
           </li>
 
           <li>
-            <a href="#registration" className="transition hover:text-green-700">
+            <a
+              href="#registration"
+              className="transition hover:text-green-700"
+            >
               Registration
             </a>
           </li>
 
           <li>
-            <a href="#gallery" className="transition hover:text-green-700">
+            <a
+              href="#gallery"
+              className="transition hover:text-green-700"
+            >
               Gallery
             </a>
           </li>
 
+          {/* Create Your DP */}
           <li>
-            <a href="#contact" className="transition hover:text-green-700">
+            <a
+              href="https://getdp.co/weK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-green-700 transition hover:text-green-900"
+            >
+              Create Your DP
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#contact"
+              className="transition hover:text-green-700"
+            >
               Contact
             </a>
           </li>
@@ -217,6 +250,19 @@ export default function Navbar() {
                 className="block rounded-lg px-4 py-3 transition hover:bg-green-50 hover:text-green-700"
               >
                 Gallery
+              </a>
+            </li>
+
+            {/* Create Your DP */}
+            <li>
+              <a
+                href="https://getdp.co/weK"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="block rounded-lg px-4 py-3 font-semibold text-green-700 transition hover:bg-green-50 hover:text-green-900"
+              >
+                Create Your DP
               </a>
             </li>
 

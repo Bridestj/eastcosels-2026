@@ -9,11 +9,11 @@ const gallery = [
   },
   {
     title: "Cultural Day",
-    image: "/images/gallery/cultural.jpg",
+    image: "/images/gallery/cultural.jpeg",
   },
   {
     title: "Sports Festival",
-    image: "/images/gallery/sports.jpg",
+    image: "/images/gallery/sports.jpeg",
   },
   {
     title: "Bonfire Night",
@@ -25,7 +25,7 @@ const gallery = [
   },
   {
     title: "Awards Ceremony",
-    image: "/images/gallery/awards.jpg",
+    image: "/images/gallery/awards.jpeg",
   },
   {
     title: "Group Photograph",

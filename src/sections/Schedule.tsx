@@ -5,20 +5,17 @@ export default function Schedule() {
       date: "August 30, 2026",
       activities: [
         "Registration & Check-in",
-        "Opening Ceremony",
-        "Keynote Address",
-        "Research Paper Presentations",
-        "Bonfire Night 🔥",
+        "Burnfire, Suya and Games Night 🔥",
       ],
     },
     {
       day: "Day Two",
       date: "August 31, 2026",
       activities: [
-        "Panel Discussion",
-        "Sports Festival ⚽",
-        "Pool Party 🏊",
-        "Cultural Day 🎭",
+        "Morning Exercise",
+        "Lectures, Launching of Magazine, Talks and literary competition",
+        "Chapter Reharsals",
+        "Cultural Fiesta & Fake Wedding, Cultural Dance, Tales and lots more. 🎭",
         "Networking Dinner",
       ],
     },
@@ -26,11 +23,21 @@ export default function Schedule() {
       day: "Day Three",
       date: "September 1, 2026",
       activities: [
-        "Workshops",
-        "Career Session",
-        "Awards Ceremony 🏆",
-        "Closing Ceremony",
-        "Departure",
+        "Football Tournaments",
+        "Visit to Tourist Attractions",
+        "Dinner, Talent Shows, Awards, Pagentry and After Party 🏆",
+        
+      ],
+    },
+    {
+      day: "Day four",
+      date: "September 2, 2026",
+      activities: [
+        "Clean-up",
+        "Election and Handover",
+        "Ceremony",
+        "Depature",
+        
       ],
     },
   ];

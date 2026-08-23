@@ -18,10 +18,8 @@ const packages = {
     ],
   },
 
-  // Keep "Alumini" internally so existing backend/database logic
-  // continues to work. The user-facing text says "Alumni".
   Alumini: {
-    title: "Alumni",
+    title: "Alumini",
     price: 20000,
     displayPrice: "₦20,000",
     features: [
@@ -36,7 +34,7 @@ const packages = {
     price: 199,
     displayPrice: "$199",
     features: [
-      "Everything in Alumni",
+      "Everything in Alumini",
       "Airport Welcome Guide",
       "International Delegate Kit",
       "Priority Conference Support",
@@ -72,6 +70,12 @@ function RegisterForm() {
 
   const selectedPackage = packages[registrationCategory];
 
+  const inputClassName =
+    "w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-base text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100";
+
+  const selectClassName =
+    "w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-base text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100";
+
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>
   ) => {
@@ -80,10 +84,6 @@ function RegisterForm() {
     if (loading) return;
 
     setErrorMessage("");
-
-    // -------------------------
-    // CLEAN VALUES
-    // -------------------------
 
     const cleanName = fullName.trim();
     const cleanEmail = email.trim().toLowerCase();
@@ -108,9 +108,7 @@ function RegisterForm() {
     }
 
     if (cleanName.length > 100) {
-      setErrorMessage(
-        "Your full name is too long."
-      );
+      setErrorMessage("Your full name is too long.");
       return;
     }
 
@@ -192,7 +190,7 @@ function RegisterForm() {
 
     if (!level) {
       setErrorMessage(
-        "Please select your level or status."
+        "Please select your level."
       );
       return;
     }
@@ -209,10 +207,6 @@ function RegisterForm() {
     try {
       const amount = selectedPackage.price;
 
-      // -------------------------
-      // 1. INITIALIZE PAYSTACK
-      // -------------------------
-
       const response = await fetch(
         "/api/paystack/initialize",
         {
@@ -220,7 +214,6 @@ function RegisterForm() {
           headers: {
             "Content-Type": "application/json",
           },
-
           body: JSON.stringify({
             email: cleanEmail,
             registrationCategory,
@@ -240,12 +233,11 @@ function RegisterForm() {
           payment.message ||
             "Unable to initialize payment. Please try again."
         );
-
         return;
       }
 
       // -------------------------
-      // 2. SAVE REGISTRATION
+      // SAVE REGISTRATION
       // -------------------------
 
       const { error } = await supabase
@@ -261,12 +253,9 @@ function RegisterForm() {
             level,
             registration_category:
               registrationCategory,
-
             payment_status: "Pending",
-
             payment_reference:
               payment.data.reference,
-
             amount_paid: amount,
           },
         ]);
@@ -285,7 +274,7 @@ function RegisterForm() {
       }
 
       // -------------------------
-      // 3. REDIRECT TO PAYSTACK
+      // REDIRECT TO PAYSTACK
       // -------------------------
 
       window.location.href =
@@ -307,7 +296,7 @@ function RegisterForm() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-gray-100 px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
 
-      {/* Top Navigation */}
+      {/* Navigation */}
 
       <div className="mx-auto mb-8 flex max-w-6xl items-center justify-between">
 
@@ -362,7 +351,7 @@ function RegisterForm() {
 
           </div>
 
-          {/* Error Message */}
+          {/* Error */}
 
           {errorMessage && (
             <div
@@ -398,7 +387,7 @@ function RegisterForm() {
                 minLength={3}
                 maxLength={100}
                 autoComplete="name"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={inputClassName}
                 required
               />
             </div>
@@ -421,7 +410,7 @@ function RegisterForm() {
                   setEmail(e.target.value)
                 }
                 autoComplete="email"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={inputClassName}
                 required
               />
             </div>
@@ -445,7 +434,7 @@ function RegisterForm() {
                 }
                 autoComplete="tel"
                 maxLength={20}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={inputClassName}
                 required
               />
             </div>
@@ -469,7 +458,7 @@ function RegisterForm() {
                   onChange={(e) =>
                     setGender(e.target.value)
                   }
-                  className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                  className={selectClassName}
                   required
                 >
                   <option value="">
@@ -489,7 +478,9 @@ function RegisterForm() {
               {/* Level / Status */}
 
               <div>
+
                 <label className="mb-2 block text-sm font-bold text-gray-800">
+
                   {registrationCategory === "Student"
                     ? "Level"
                     : registrationCategory === "Alumini"
@@ -499,6 +490,7 @@ function RegisterForm() {
                   <span className="ml-1 text-red-500">
                     *
                   </span>
+
                 </label>
 
                 <select
@@ -506,9 +498,10 @@ function RegisterForm() {
                   onChange={(e) =>
                     setLevel(e.target.value)
                   }
-                  className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                  className={selectClassName}
                   required
                 >
+
                   <option value="">
                     {registrationCategory === "Student"
                       ? "Select Level"
@@ -570,7 +563,9 @@ function RegisterForm() {
                       </option>
                     </>
                   )}
+
                 </select>
+
               </div>
 
             </div>
@@ -578,6 +573,7 @@ function RegisterForm() {
             {/* Institution */}
 
             <div>
+
               <label className="mb-2 block text-sm font-bold text-gray-800">
                 Institution
                 <span className="ml-1 text-red-500">
@@ -594,14 +590,16 @@ function RegisterForm() {
                 }
                 maxLength={150}
                 autoComplete="organization"
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={inputClassName}
                 required
               />
+
             </div>
 
             {/* Department */}
 
             <div>
+
               <label className="mb-2 block text-sm font-bold text-gray-800">
                 Department
                 <span className="ml-1 text-red-500">
@@ -617,14 +615,16 @@ function RegisterForm() {
                   setDepartment(e.target.value)
                 }
                 maxLength={150}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 placeholder:text-gray-400 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={inputClassName}
                 required
               />
+
             </div>
 
             {/* Registration Category */}
 
             <div>
+
               <label className="mb-2 block text-sm font-bold text-gray-800">
                 Registration Category
                 <span className="ml-1 text-red-500">
@@ -638,24 +638,30 @@ function RegisterForm() {
                   const newCategory =
                     e.target.value as PackageName;
 
-                  setRegistrationCategory(newCategory);
+                  setRegistrationCategory(
+                    newCategory
+                  );
+
                   setLevel("");
                 }}
-                className="w-full rounded-xl border border-gray-200 bg-gray-50 p-4 text-gray-900 outline-none transition focus:border-green-600 focus:bg-white focus:ring-2 focus:ring-green-100"
+                className={selectClassName}
                 required
               >
+
                 <option value="Student">
                   Student Delegate
                 </option>
 
                 <option value="Alumini">
-                  Alumni
+                  Alumini
                 </option>
 
                 <option value="International Delegate">
                   International Delegate
                 </option>
+
               </select>
+
             </div>
 
             {/* Mobile Package Summary */}
@@ -693,6 +699,7 @@ function RegisterForm() {
               disabled={loading}
               className="w-full rounded-xl bg-green-700 py-4 font-bold text-white shadow-lg transition hover:bg-green-800 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-60"
             >
+
               {loading ? (
                 <span className="flex items-center justify-center gap-3">
 
@@ -704,6 +711,7 @@ function RegisterForm() {
               ) : (
                 "Proceed to Secure Payment →"
               )}
+
             </button>
 
             <p className="text-center text-xs leading-5 text-gray-500">
@@ -715,7 +723,7 @@ function RegisterForm() {
 
         </div>
 
-        {/* Package Summary */}
+        {/* Desktop Package Summary */}
 
         <aside className="hidden lg:block">
 

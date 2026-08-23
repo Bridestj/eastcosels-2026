@@ -1,3 +1,4 @@
+import Assistant from "@/components/Assistant";
 import Footer from "@/sections/Footer";
 import Contact from "@/sections/Contact";
 import FAQ from "@/sections/FAQ";
@@ -30,6 +31,7 @@ export default function Home() {
       <FAQ />
       <Contact />
       <Footer />
+      <Assistant />
     </main>
   );
 }
