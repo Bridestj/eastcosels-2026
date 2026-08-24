@@ -30,7 +30,7 @@ const questions = [
   {
     question: "Is accommodation provided?",
     answer:
-      "Accommodation is included for delegates registering under the student and Alumini package. International delegates will arrange their own accommodation.",
+      "Yes, Accommodation is included for registered delegates.",
   },
 
   {

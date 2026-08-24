@@ -64,6 +64,16 @@ export default function Contact() {
                     +234 9151271990
                   </p>
                 </div>
+                <div>
+                  <a
+                 href="https://wa.me/2349120201509"
+                  target="_blank"
+                 rel="noopener noreferrer"
+                 className="rounded-full border border-green-600 px-5 py-2 text-green-700"
+                 >
+                 WhatsApp
+      </a>
+                </div>
 
                 <div>
                   <h4 className="font-bold text-green-700">

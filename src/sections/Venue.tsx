@@ -74,11 +74,7 @@ export default function Venue() {
 
             <ul className="mt-6 space-y-4 text-gray-600 leading-7">
 
-              <li>✅ Student delegates: Accommodation is included in the registration package.</li>
-
-              <li>🏨 Professional delegates: Accommodation is not included.</li>
-
-              <li>🌍 International delegates: Kindly arrange your accommodation. Nearby hotel recommendations will be provided.</li>
+              <li>✅Accommodation is included in the registration package for all delegates.</li>
 
             </ul>
 
