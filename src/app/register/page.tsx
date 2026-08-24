@@ -37,7 +37,7 @@ const packages = {
     price: 270000,
 
     // Keep the official public-facing registration price.
-    displayPrice: "$199 — ₦270,000",
+    displayPrice: "$199 — ₦270,000 + processing fee",
 
     features: [
       "Everything in Alumini",
