@@ -13,6 +13,8 @@ import Stats from "@/sections/Stats";
 import Navbar from "../components/Navbar";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
+import DP from "@/sections/DP";
+import EventSchema from "@/components/EventSchema";
 
 export default function Home() {
   return (
@@ -27,11 +29,14 @@ export default function Home() {
       <Registration />
       <Venue />
       <Sponsors />
+      <DP />
       <Gallery />
       <FAQ />
       <Contact />
       <Footer />
       <Assistant />
+      <EventSchema />
+      
     </main>
   );
 }
