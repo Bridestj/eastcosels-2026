@@ -31,8 +31,14 @@ const packages = {
 
   "International Delegate": {
     title: "International Delegate",
-    price: 199,
+
+    // Internal payment amount.
+    // Paystack will process this in NGN.
+    price: 270000,
+
+    // Keep the official public-facing registration price.
     displayPrice: "$199",
+
     features: [
       "Everything in Alumini",
       "Airport Welcome Guide",
@@ -256,6 +262,10 @@ function RegisterForm() {
             payment_status: "Pending",
             payment_reference:
               payment.data.reference,
+
+            // Store the actual NGN payment amount.
+            // International delegates are displayed
+            // $199 but processed as ₦270,000.
             amount_paid: amount,
           },
         ]);

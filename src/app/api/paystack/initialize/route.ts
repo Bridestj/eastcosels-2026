@@ -15,8 +15,12 @@ const REGISTRATION_PRICES: Record<
   },
 
   "International Delegate": {
-    amount: 199,
-    currency: "USD",
+    // International registration is displayed as $199
+    // on the website, but processed in NGN because
+    // this Nigerian Paystack account does not have
+    // a USD domiciliary account.
+    amount: 270000,
+    currency: "NGN",
   },
 };
 
@@ -24,10 +28,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const {
-      email,
-      registrationCategory,
-    } = body;
+    const { email, registrationCategory } = body;
 
     // Validate email
     if (!email) {
@@ -65,10 +66,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const {
-      amount,
-      currency,
-    } = packageDetails;
+    const { amount, currency } = packageDetails;
 
     // Determine the correct website URL
     const siteUrl =
@@ -89,14 +87,13 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           email,
 
-          // Paystack expects the amount in the smallest
-          // currency unit (kobo for NGN).
+          // Paystack expects the amount in the
+          // smallest currency unit (kobo for NGN).
           amount: amount * 100,
 
           currency,
 
-          callback_url:
-            `${siteUrl}/payment/success`,
+          callback_url: `${siteUrl}/payment/success`,
 
           metadata: {
             registrationCategory,
@@ -107,23 +104,16 @@ export async function POST(req: Request) {
 
     const data = await response.json();
 
-    console.log(
-      "Paystack Response:",
-      data
-    );
+    console.log("Paystack Response:", data);
 
     return NextResponse.json(data);
   } catch (error) {
-    console.error(
-      "Paystack Error:",
-      error
-    );
+    console.error("Paystack Error:", error);
 
     return NextResponse.json(
       {
         status: false,
-        message:
-          "Paystack initialization failed.",
+        message: "Paystack initialization failed.",
       },
       { status: 500 }
     );

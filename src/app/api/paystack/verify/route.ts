@@ -22,8 +22,10 @@ const REGISTRATION_PRICES: Record<
   },
 
   "International Delegate": {
-    amount: 199,
-    currency: "USD",
+    // Displayed as $199 on the website,
+    // but processed in NGN.
+    amount: 270000,
+    currency: "NGN",
   },
 };
 
