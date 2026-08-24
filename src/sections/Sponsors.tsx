@@ -54,11 +54,13 @@ export default function Sponsors() {
     />
   </div>
 
-  {/* Future Sponsor */}
+  {/* YALGI */}
   <div className="flex h-32 items-center justify-center rounded-2xl border border-dashed border-green-300 bg-gray-50 shadow-sm transition hover:-translate-y-2 hover:shadow-lg">
-    <p className="text-lg font-semibold text-gray-400">
-      Coming Soon
-    </p>
+     <img
+      src="/images/sponsors/yalgi.jpeg"
+      alt="YALGI Logo"
+      className="h-24 w-auto object-contain transition duration-300 hover:scale-110"
+    />
   </div>
 
   {/* Future Sponsor */}

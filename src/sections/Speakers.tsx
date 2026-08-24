@@ -20,6 +20,22 @@ const speakers = [
     title: "President, Department of English and literary Studies, UNN",
     image: "/images/speaker4.jpeg",
   },
+
+  {
+    name: "Ven. Prof. John Ikechukwu Obasikene",
+    title: "Dean, Faculty of Arts and Humanities, ESUT",
+    image: "/images/speaker5.jpeg",
+  },
+  {
+    name: "Beauty Onyenyiri",
+    title: "Writer | Educator | Public Speaker",
+    image: "/images/speaker6.jpeg",
+  },
+  {
+    name: "Ikenna Ezenwa",
+    title: "Panelist",
+    image: "/images/speaker7.jpeg",
+  },
 ];
 
 export default function Speakers() {
