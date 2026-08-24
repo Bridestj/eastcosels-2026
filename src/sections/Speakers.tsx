@@ -36,6 +36,11 @@ const speakers = [
     title: "Panelist",
     image: "/images/speaker7.jpeg",
   },
+  {
+    name: "Stephen Chima",
+    title: "Speaker",
+    image: "/images/speaker8.jpeg",
+  },
 ];
 
 export default function Speakers() {
