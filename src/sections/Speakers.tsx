@@ -7,7 +7,7 @@ const speakers = [
     {
     name: "Racheal Okonkwo",
     title: "Guest speaker",
-    image: "/images/speaker10.jpg",
+    image: "/images/speaker10.jpeg",
   },
   {
     name: "Prof. C.F. Ononye",
