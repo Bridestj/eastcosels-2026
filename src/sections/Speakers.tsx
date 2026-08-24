@@ -4,6 +4,11 @@ const speakers = [
     title: "Host",
     image: "/images/speaker1.jpeg",
   },
+    {
+    name: "Racheal Okonkwo",
+    title: "Guest speaker",
+    image: "/images/speaker10.jpg",
+  },
   {
     name: "Prof. C.F. Ononye",
     title: "Head, Department of English and literary Studies, UNN",
