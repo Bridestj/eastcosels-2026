@@ -36,10 +36,16 @@ const speakers = [
     title: "Panelist",
     image: "/images/speaker7.jpeg",
   },
+  
   {
     name: "Stephen Chima",
     title: "Speaker",
     image: "/images/speaker8.jpeg",
+  },
+  {
+    name: "Michael Chiedoziem Chukwudera",
+    title: "Guest Author",
+    image: "/images/speaker9.jpeg",
   },
 ];
 
