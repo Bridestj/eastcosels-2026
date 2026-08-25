@@ -63,7 +63,7 @@ Includes:
 - Conference Materials
 - Conference Badge
 - Certificate of Participation
-- Refreshments
+- Accomodation
 
 2. Alumini — ₦20,000
 Includes:

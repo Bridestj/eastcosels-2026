@@ -61,7 +61,8 @@ export default function Contact() {
                   </h4>
 
                   <p className="text-gray-600">
-                    +234 9151271990
+                    +234 9115900356
+                    +234 9120201509
                   </p>
                 </div>
                 <div>
