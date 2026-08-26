@@ -10,6 +10,11 @@ const speakers = [
     image: "/images/speaker10.jpeg",
   },
   {
+    name: "Vanessa Haripersad",
+    title: "Founder/ CEO OF Shankara People Solutions Leadership and Resilience Coach and Mentor",
+    image: "/images/speaker12.jpeg",
+  },
+  {
     name: "Prof. C.F. Ononye",
     title: "Head, Department of English and literary Studies, UNN",
     image: "/images/speaker2.jpg",
