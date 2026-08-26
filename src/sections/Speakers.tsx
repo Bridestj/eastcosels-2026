@@ -1,6 +1,6 @@
 const speakers = [
   {
-    name: "Comr. Caleb Egbo Somtochukwu",
+    name: "Comr. Egbo Caleb Somtochukwu",
     title: "Host",
     image: "/images/speaker1.jpeg",
   },
