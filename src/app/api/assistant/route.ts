@@ -65,7 +65,7 @@ Includes:
 - Certificate of Participation
 - Accomodation
 
-2. Alumini — ₦20,000
+2. Alumni — ₦20,000
 Includes:
 - Everything in Student
 - EASTCOSELS Polo
@@ -73,7 +73,7 @@ Includes:
 
 3. International Delegate — $199
 Includes:
-- Everything in Alumini
+- Everything in Alumni
 - Airport Welcome Guide
 - International Delegate Kit
 - Priority Conference Support

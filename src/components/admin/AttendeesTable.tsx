@@ -62,7 +62,7 @@ export default function AttendeesTable({ attendees }: Props) {
         >
           <option>All Categories</option>
           <option>Student</option>
-          <option>Alumini</option>
+          <option>Alumni</option>
           <option>International Delegate</option>
         </select>
 

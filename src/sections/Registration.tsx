@@ -13,7 +13,7 @@ const packages = [
     ],
   },
   {
-    title: "Alumini",
+    title: "Alumni",
     price: "₦20,000",
     badge: "Premium",
     features: [
@@ -27,7 +27,7 @@ const packages = [
     price: "$199",
     badge: "International",
     features: [
-      "Everything in Alumini",
+      "Everything in Alumni",
       "Airport Welcome Guide",
       "International Delegate Kit",
       "Priority Conference Support",

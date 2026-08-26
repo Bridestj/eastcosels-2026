@@ -19,6 +19,11 @@ const speakers = [
     title: "Staff Adviser,  Department of English and literary Studies, UNN",
     image: "/images/speaker3.jpg",
   },
+  {
+    name: "Prof Aderemi Raji–Oyelade",
+    title: "NASELS Nigeria grand patron",
+    image: "/images/speaker11.jpeg",
+  },
 
   {
     name: "Ogbonna Angela Onyedikachukwu",

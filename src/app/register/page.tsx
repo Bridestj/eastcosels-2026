@@ -18,8 +18,8 @@ const packages = {
     ],
   },
 
-  Alumini: {
-    title: "Alumini",
+  Alumni: {
+    title: "Alumni",
     price: 20000,
     displayPrice: "₦20,000",
     features: [
@@ -40,7 +40,7 @@ const packages = {
     displayPrice: "$199 — ₦270,000 + processing fee",
 
     features: [
-      "Everything in Alumini",
+      "Everything in Alumni",
       "Airport Welcome Guide",
       "International Delegate Kit",
       "Priority Conference Support",
@@ -493,7 +493,7 @@ function RegisterForm() {
 
                   {registrationCategory === "Student"
                     ? "Level"
-                    : registrationCategory === "Alumini"
+                    : registrationCategory === "Alumni"
                       ? "Status"
                       : "Academic / Professional Status"}
 
@@ -542,7 +542,7 @@ function RegisterForm() {
                     </>
                   )}
 
-                  {registrationCategory === "Alumini" && (
+                  {registrationCategory === "Alumni" && (
                     <>
                       <option value="Graduate">
                         Graduate
@@ -662,8 +662,8 @@ function RegisterForm() {
                   Student Delegate
                 </option>
 
-                <option value="Alumini">
-                  Alumini
+                <option value="Alumni">
+                  Alumni
                 </option>
 
                 <option value="International Delegate">

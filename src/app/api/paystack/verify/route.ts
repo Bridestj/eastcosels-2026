@@ -16,7 +16,7 @@ const REGISTRATION_PRICES: Record<
     currency: "NGN",
   },
 
-  Alumini: {
+  Alumni: {
     amount: 20000,
     currency: "NGN",
   },
