@@ -15,6 +15,11 @@ const speakers = [
     image: "/images/speaker12.jpeg",
   },
   {
+    name: "Eze Nnaemeka Eze",
+    title: "Head, Department of English and literary Studies, UNN",
+    image: "/images/speaker13.png",
+  },
+  {
     name: "Prof. C.F. Ononye",
     title: "Head, Department of English and literary Studies, UNN",
     image: "/images/speaker2.jpg",
