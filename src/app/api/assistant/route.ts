@@ -60,6 +60,7 @@ Registration packages:
 
 1. Student Delegate — ₦12,000
 Includes:
+- Accomodation
 - Conference Materials
 - Conference Badge
 - Certificate of Participation
