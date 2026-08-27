@@ -15,8 +15,8 @@ const speakers = [
     image: "/images/speaker12.jpeg",
   },
   {
-    name: "Eze Nnaemeka Eze",
-    title: "Head, Department of English and literary Studies, UNN",
+    name: "Eze Nnaemeka Eze(Nani Boi)",
+    title: "Panelist",
     image: "/images/speaker13.png",
   },
   {
